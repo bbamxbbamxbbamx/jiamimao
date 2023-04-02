@@ -1,74 +1,172 @@
-<p align="center">
-  <a href="#" rel="noopener">
- <img src="https://i.ibb.co/5vNbRcg/cat3.png"></a>
-</p>
+-- 创建屏幕Gui
+local CardSystemScreenGui = Instance.new("ScreenGui")
 
+-- 创建框架
+local CardSystem = Instance.new("Frame")
 
-采用AES算法，不用安装任何客户端软件，也不用链接互联网，就可以在浏览器里运行.
+-- 创建标题
+local Title = Instance.new("TextLabel")
 
-# 一般问题
+-- 创建卡密标签
+local CardLabel = Instance.new("TextLabel")
 
-## 这个软件是做什么用的？
+-- 创建卡密输入框
+local CardEntry = Instance.new("TextBox")
 
-您可以用这个软件来加密任何格式的文件，例如您电脑里面的视频、pdf文档、图片等等。加密后，任何人就无法打开这个加密后的文件，无法知道这个加密文件的内容，除非知道密码的本人。如果您的数据没有被提前加密而上传到第三方网盘（例如dropbox、google drive、百度网盘）时，您的数据内容直接会暴露给这些公司。所以，我们强烈建议您的一些重要文件一定要进行强加密，这样才能保障您的数据安全。
+-- 创建卡密输入框的圆角
+local CardEntryUICorner = Instance.new("UICorner")
 
-## 如果有一天你这个网站倒闭了，我到哪里去解密我的文件？
+-- 创建确定按钮
+local SubmitButton = Instance.new("TextButton")
 
-**完全不用担心.** 我们的软件源代码是100%开源的，类似nginx和wikipedia这类的软件一样。打个比方，就好像我们把一道菜的制作方法给公开了，你可以把这道菜的制作方法（源代码）下载到您本地的电脑，不用链接互联网，本地点击运行文件夹里面的index.html文件即可.如果某一天该网站倒闭或者被某些国家的防火墙屏蔽，你只需要保存好该软件的离线源代码即可。
+-- 创建图片
+local CorrectIncorrectImageLabel = Instance.new("ImageLabel")
 
-  
-## 这个软件免费吗?
+-- 创建图片圆角
+local ImageLabelUICorner = Instance.new("UICorner")
 
-**是的.** 加密猫是一个免费的在线加密软件.
+-- 创建确定按钮的圆角
+local SubmitButtonUICorner = Instance.new("UICorner")
 
-  
+-- 创建结果标签
+local ResultLabel = Instance.new("TextLabel")
 
-## 如何使用?
+-- 创建框架的圆角
+local CardSystemUICorner = Instance.new("UICorner")
 
-小伙伴们，图文教程已经很详细了！ 如果还不会使用，您可以看一下我们录制的视频教程!
+-- 设置屏幕Gui
+CardSystemScreenGui.Name = "CardSystemScreenGui"
+CardSystemScreenGui.Parent = game.CoreGui
 
-  
+-- 设置框架
+CardSystem.Name = "CardSystem"
+CardSystem.Parent = CardSystemScreenGui
+CardSystem.BackgroundColor3 = Color3.fromRGB(44, 62, 80)
+CardSystem.BorderSizePixel = 0
+CardSystem.Position = UDim2.new(0.5, -200, 0.5, -150)
+CardSystem.Size = UDim2.new(0, 400, 0, 300)
 
-## 有mac/linux/windows的客户端吗?
+-- 设置标题
+Title.Name = "Title"
+Title.Parent = CardSystem
+Title.BackgroundColor3 = Color3.fromRGB(44, 62, 80)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.5, -100, 0, 20)
+Title.Size = UDim2.new(0, 200, 0, 50)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "地岩卡密系统"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 20.000
+Title.TextWrapped = true
 
-没有，这个程序大小不到2M，您可以直接下载源代码到您的本地浏览器运行即可，为什么还需要安装客户端？不浪费您的硬盘空间吗？Ok，如果您还想仍然坚持使用客户端软件，可以到github上提issue
+-- 设置卡密标签
+CardLabel.Name = "CardLabel"
+CardLabel.Parent = CardSystem
+CardLabel.BackgroundColor3 = Color3.fromRGB(44, 62, 80)
+CardLabel.BorderSizePixel = 0
+CardLabel.Position = UDim2.new(0.232500002, -75, 0.430000007, 0)
+CardLabel.Size = UDim2.new(0, 144, 0, 36)
+CardLabel.Font = Enum.Font.SourceSansBold
+CardLabel.Text = "请输入卡密："
+CardLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+CardLabel.TextScaled = true
+CardLabel.TextSize = 14.000
+CardLabel.TextWrapped = true
 
-  
+-- 设置卡密输入框
+CardEntry.Name = "CardEntry"
+CardEntry.Parent = CardSystem
+CardEntry.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CardEntry.BorderSizePixel = 0
+CardEntry.Position = UDim2.new(0.654999971, -100, 0.449999988, 0)
+CardEntry.Size = UDim2.new(0, 200, 0, 30)
+CardEntry.ClearTextOnFocus = false
+CardEntry.Font = Enum.Font.SourceSansBold
+CardEntry.PlaceholderText = "请输入卡密"
+CardEntry.Text = "请输入卡密"
+CardEntry.TextColor3 = Color3.fromRGB(0, 0, 0)
+CardEntry.TextScaled = true
+CardEntry.TextSize = 14.000
+CardEntry.TextWrapped = true
+CardEntry.ClearTextOnFocus = true
 
-## 有文件大小和类型限制吗?
+-- 设置卡密输入框的圆角
+CardEntryUICorner.Name = "CardEntryUICorner"
+CardEntryUICorner.Parent = CardEntry
 
-没有，您可以加密任何格式的文件，例如zip、mp4、mp3、jpg等等。我们建议您先压缩您的所有文件到一个zip或者tar压缩包，然后加密这个压缩包，这样加密的速度更快
+-- 设置确定按钮
+SubmitButton.Name = "SubmitButton"
+SubmitButton.Parent = CardSystem
+SubmitButton.BackgroundColor3 = Color3.fromRGB(46, 204, 113)
+SubmitButton.BorderSizePixel = 0
+SubmitButton.Position = UDim2.new(0.5, -75, 0.700000048, 0)
+SubmitButton.Size = UDim2.new(0, 150, 0, 30)
+SubmitButton.Font = Enum.Font.SourceSansBold
+SubmitButton.Text = "确定"
+SubmitButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+SubmitButton.TextScaled = true
+SubmitButton.TextSize = 14.000
+SubmitButton.TextWrapped = true
 
-  
+-- 设置确定按钮的圆角
+SubmitButtonUICorner.CornerRadius = UDim.new(0, 15)
+SubmitButtonUICorner.Name = "SubmitButtonUICorner"
+SubmitButtonUICorner.Parent = SubmitButton
 
-## 这个软件安全吗?
+-- 设置图片
+CorrectIncorrectImageLabel.Name = "CorrectIncorrectImageLabel"
+CorrectIncorrectImageLabel.Parent = CardSystem
+CorrectIncorrectImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CorrectIncorrectImageLabel.BackgroundTransparency = 1.000
+CorrectIncorrectImageLabel.Position = UDim2.new(0.75, 0,0.8, 0)
+CorrectIncorrectImageLabel.Size = UDim2.new(0, 60, 0, 60)
 
-当然，为什么不安全？这个加密软件采用 [AES-GCM](https://www.w3.org/TR/WebCryptoAPI/#aes-gcm) 算法.  
-整个加密和解密的过程都在您本地的离线电脑运行. 服务器不存储任何数据，该软件的源代码也是100%开源的。打个比方，一个软件的源代码是开源的，就好像一道菜的制作方法和原材料是公开的，这样你就知道这道菜有没有毒，卫不卫生，能不能吃。
+-- 设置图片的圆角
+ImageLabelUICorner.CornerRadius = UDim.new(0, 15)
+ImageLabelUICorner.Name = "ImageLabelUICorner"
+ImageLabelUICorner.Parent = CorrectIncorrectImageLabel
 
-  
+-- 设置结果标签
+ResultLabel.Name = "ResultLabel"
+ResultLabel.Parent = CardSystem
+ResultLabel.BackgroundColor3 = Color3.fromRGB(44, 62, 80)
+ResultLabel.BorderSizePixel = 0
+ResultLabel.Position = UDim2.new(0.345, -100,0.86, 0)
+ResultLabel.Size = UDim2.new(0, 210,0, 32)
+ResultLabel.Font = Enum.Font.SourceSansBold
+ResultLabel.Text = ""
+ResultLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+ResultLabel.TextSize = 14.000
+ResultLabel.TextScaled = true
 
-## 我忘记了我的加密密码，我可以找回我的密码吗？
+-- 设置框架的圆角
+CardSystemUICorner.CornerRadius = UDim.new(0, 50)
+CardSystemUICorner.Name = "CardSystemUICorner"
+CardSystemUICorner.Parent = CardSystem
 
-**不能，** 我们的服务器不存储任何数据, 我们也不存储任何用户资料，一旦您丢失了您的密码，您将无法解密您的文件。所以，我们强烈建议您务必保存好您自己设置的密码
-
-  
-
-## 看了视频教程，我还是不会使用，提供技术服务支持吗?
-
-加密猫是一个完全免费 [开源的软件](https://github.com/Corydonbyte/jiamimao), 需要技术支持的话，可以在github上提issues.
-
-  
-
-## 你们这个网站有没有备用的网址?
-
-如果您所在的国家屏蔽了这个网站，您可以通过下面3个备用的https协议网址进行访问。https://cryptocat.runkodapps.com/ 和 https://jiamimao.hashbase.io  和 https://jiamimao.netlify.com/ 。另外，我们也支持p2p Dat协议，您可以下载beaker浏览器,在地址栏粘贴： dat://214f50845d6414a06e6dc490bf163ac15319071d8ffb20bf75e580c579cf796f/ 或者 dat://jiamimao.hashbase.io/
-
-  
-
-## 既然是免费开源软件，你们如何盈利、维持该网站的正常运行?
-
-我们的运营和盈利模式类似于mariadb、docker和openresty这类的开源软件，提供定制开发和技术服务支持。如果您需要开发特殊的客户端或者其他功能，我们会收取一定的开发服务费用，您可以到github上联系我们，或者发邮件到Corydonbyte@protonmail.com
-
-## 从哪里可以得到该软件的最新版本和功能?
-我们是一个开源软件，github地址是：https://github.com/Corydonbyte/jiamimao  您可以收藏这个github地址。这样您就可以知道该软件的最新动态,我们最新的操作教程会发布在这里：https://github.com/Corydonbyte/jiamimao/wiki。
+-- 处理卡密的代码
+SubmitButton.MouseButton1Click:Connect(function()
+local cardCode = CardEntry.Text
+if cardCode == "cxkxhzsz6666"or"bbamxbbamxbbamx" then-- ""内设置您的卡密
+    ResultLabel.Text = "卡密验证成功！"
+    CorrectIncorrectImageLabel.Image = "rbxassetid://12517387637"-- 设置卡密系统正确图片的ID
+    wait(1)-- 关掉卡密系统的事件
+    CardSystem:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    Title:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    CardLabel:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    CardEntry:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    SubmitButton:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    ResultLabel:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    CorrectIncorrectImageLabel:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.2,true)
+    wait(3)
+    CardSystemScreenGui:Destroy()
+    loadstring(game:HttpGet("https://pastebin.com/raw/8NpLZwMF"))()-- 输入你的代码到这里
+else
+    ResultLabel.Text = "卡密错误,请检查您的卡密是否正确"
+    CorrectIncorrectImageLabel.Image = "rbxassetid://12517382532"-- 设置卡密系统错误图片的ID
+    wait(2)-- 设置结果标签的内容为空
+    ResultLabel.Text = ""
+    CorrectIncorrectImageLabel.Image = ""
+end
+end)
